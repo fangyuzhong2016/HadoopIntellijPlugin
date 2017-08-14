@@ -22,9 +22,11 @@ Get the latest source code from https://github.com/fangyuzhong2016/HadoopIntelli
 ③, Ready Hadoop related jar package (compilation step is not necessary)    
 ④, Enter the source directory ../HadoopIntellijPlugin/ modify the pom.xml file, the main modified hadoop version and IntelliJ IDEA installation path, set as follows:  
 ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/5.jpg)
-⑤, the implementation of mvn order:
-First execute mvn clean 
-Then execute mvn assembly:assembly   
+⑤, the implementation of mvn order:  
+First execute   
+mvn clean  
+Then execute   
+mvn assembly:assembly  
 After the completion of the compiler in the ... / target / HadoopIntellijPlugin-1.0.zip that is the plug-in installation package, and then installed to IntelliJ
 
 ## 3、Intellij plugin for hadoop development environment settings
