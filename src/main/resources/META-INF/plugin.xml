@@ -1,0 +1,108 @@
+<idea-plugin>
+  <!--插件的ID-->
+  <id>com.fangyuzhong.intelliJ.hadoop</id>
+  <!--插件的名称-->
+  <name>基于IntelliJ IDEA 的Hadoop插件</name>
+  <!--插件的版本-->
+  <version>1.0.1000.1</version>
+  <!--插件的作者描述-->
+  <vendor email="906328924@qq.com" url="http://www.fangyuzhon.com">fangyuzhong</vendor>
+
+  <!--插件描述-->
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <!--插件变更相关说明-->
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!--插件编译的IDEA版本-->
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="172.3544.35"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+  <!--Application 级别组件注册-->
+  <application-components>
+    <component>
+      <implementation-class>com.fangyuzhong.intelliJ.hadoop.fsconnection.ConnectionCache</implementation-class>
+    </component>
+    <component>
+      <implementation-class>com.fangyuzhong.intelliJ.hadoop.options.DefaultProjectSettingsManager</implementation-class>
+    </component>
+    <component>
+      <implementation-class>com.fangyuzhong.intelliJ.hadoop.globalization.LocaleLanguageManager</implementation-class>
+    </component>
+  </application-components>
+
+  <!--Project级别组件注册-->
+  <project-components>
+    <component>
+      <implementation-class>com.fangyuzhong.intelliJ.hadoop.fsbrowser.FileSystemBrowserManager</implementation-class>
+    </component>
+    <component>
+      <implementation-class>com.fangyuzhong.intelliJ.hadoop.fsconnection.ConnectionManager</implementation-class>
+    </component>
+    <component>
+      <implementation-class>com.fangyuzhong.intelliJ.hadoop.options.ProjectSettingsManager</implementation-class>
+    </component>
+  </project-components>
+
+  <!--插件扩展点-->
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- 注册文件系统浏览器 FileSystemBrowser 的 Tool Window -->
+    <toolWindow id="Hadoop FileSystem" icon="/img/hadoop-logo-16x16.png"
+                anchor="left"
+                factoryClass="com.fangyuzhong.intelliJ.hadoop.fsbrowser.FileSystemBrowserToolWindowFactory"/>
+  </extensions>
+
+  <!--插件的Action-->
+  <actions>
+    <!-- Add your actions here -->
+    <group id="HadoopNavigator.Actions.MainMenu" text="_Hadoop">
+      <action id="HadoopNavigator.Actions.Browser.ShowHadoopToolWindow"
+              class="com.fangyuzhong.intelliJ.hadoop.mainmenu.action.ShowHadoopToolWindowAction"
+              text="Hadoop 文件系统" />
+      <action id="HadoopNavigator.Actions.MainMenu.OpenSettings"
+              class="com.fangyuzhong.intelliJ.hadoop.mainmenu.action.MenuOpenSettingAction"
+              text="Settings" />
+      <separator/>
+      <action id="HadoopNavigator.Actions.MainMenu.OpenAbout"
+              class="com.fangyuzhong.intelliJ.hadoop.mainmenu.action.OpenAboutPageAction"
+              text="About" />
+      <!--<action id="HadoopNavigator.Actions.MainMenu.TestOpenObject"-->
+              <!--class="com.fangyuzhong.intelliJ.hadoop.mainmenu.action.TestOpenObjectAction"-->
+              <!--text="测试-打开" />-->
+      <add-to-group anchor="before" group-id="MainMenu" relative-to-action="HelpMenu"/>
+    </group>
+    <group id="HadoopNavigator.ActionGroup.Browser.Controls" text="Browser object properties">
+      <action id="HadoopNavigator.Actions.Browser.OpenSettings"
+              class="com.fangyuzhong.intelliJ.hadoop.fsbrowser.action.OpenSettingsAction"
+              text="Browser - Options"/>
+      <separator/>
+      <action id="HadoopNavigator.Actions.Browser.NavigateBack"
+              class="com.fangyuzhong.intelliJ.hadoop.fsbrowser.action.NavigateBackAction"
+              text="Browser - Back"/>
+      <action id="HadoopNavigator.Actions.Browser.NavigateForward"
+              class="com.fangyuzhong.intelliJ.hadoop.fsbrowser.action.NavigateForwardAction"
+              text="Browser - Forward"/>
+      <action id="HadoopNavigator.Actions.Browser.ExpandTree"
+              class="com.fangyuzhong.intelliJ.hadoop.fsbrowser.action.ExpandTreeAction"
+              text="Browser - Expand all"/>
+      <action id="HadoopNavigator.Actions.Browser.CollapseTree"
+              class="com.fangyuzhong.intelliJ.hadoop.fsbrowser.action.CollapseTreeAction"
+              text="Browser - Collapse all"/>
+      <action id="HadoopNavigator.Actions.Browser.ShowObjectProperties"
+              class="com.fangyuzhong.intelliJ.hadoop.fsbrowser.action.ShowObjectPropertiesAction"
+              text="Browser - Show object properties"/>
+    </group>
+  </actions>
+</idea-plugin>

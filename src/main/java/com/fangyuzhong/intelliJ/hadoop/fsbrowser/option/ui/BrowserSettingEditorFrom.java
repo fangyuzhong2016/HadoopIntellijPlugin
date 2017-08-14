@@ -1,0 +1,178 @@
+package com.fangyuzhong.intelliJ.hadoop.fsbrowser.option.ui;
+
+import com.fangyuzhong.intelliJ.hadoop.core.options.ui.ConfigurationEditorForm;
+import com.fangyuzhong.intelliJ.hadoop.core.util.EventUtil;
+import com.fangyuzhong.intelliJ.hadoop.fsbrowser.option.BrowserDisplayMode;
+import com.fangyuzhong.intelliJ.hadoop.fsbrowser.option.BrowserSettings;
+import com.fangyuzhong.intelliJ.hadoop.fsbrowser.option.listener.DisplayModeSettingsListener;
+import com.fangyuzhong.intelliJ.hadoop.globalization.LanguageKeyWord;
+import com.fangyuzhong.intelliJ.hadoop.globalization.LocaleLanguageManager;
+import com.fangyuzhong.intelliJ.hadoop.globalization.UpdateLanguageListener;
+import com.intellij.openapi.options.ConfigurationException;
+import com.intellij.ui.DocumentAdapter;
+import com.intellij.uiDesigner.core.GridConstraints;
+import com.intellij.uiDesigner.core.GridLayoutManager;
+import com.intellij.uiDesigner.core.Spacer;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ResourceBundle;
+
+import static com.fangyuzhong.intelliJ.hadoop.core.ui.GUIUtil.updateBorderTitleForeground;
+
+/**
+ * Created by fangyuzhong on 17-8-8.
+ */
+public class BrowserSettingEditorFrom extends ConfigurationEditorForm<BrowserSettings>
+{
+    private JPanel mainPanel;
+    private JComboBox cmbShowTreeModel;
+    private JLabel lableTreeShow;
+
+
+    public BrowserSettingEditorFrom(BrowserSettings browserSettings)
+    {
+        super(browserSettings);
+        updateUiLanguage();
+        updateBorderTitleForeground(mainPanel);
+        cmbShowTreeModel.addItem(BrowserDisplayMode.SINGLE);
+        cmbShowTreeModel.addItem(BrowserDisplayMode.TABBED);
+        resetFormChanges();
+        registerComponent(mainPanel);
+    }
+
+
+    @Override
+    protected ItemListener createItemListener()
+    {
+        return new ItemListener()
+        {
+            public void itemStateChanged(ItemEvent e)
+            {
+                getConfiguration().setModified(true);
+            }
+        };
+    }
+
+    protected ActionListener createActionListener()
+    {
+        return new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                getConfiguration().setModified(true);
+            }
+        };
+    }
+
+    @Override
+    protected DocumentListener createDocumentListener()
+    {
+        return new DocumentAdapter()
+        {
+            @Override
+            protected void textChanged(DocumentEvent e)
+            {
+                getConfiguration().setModified(true);
+            }
+        };
+    }
+
+    public BrowserDisplayMode getBrowserDisplayMode()
+    {
+        BrowserDisplayMode browserShowMode = (BrowserDisplayMode) cmbShowTreeModel.getSelectedItem();
+        return browserShowMode;
+    }
+
+    public void setSelectedLocale(BrowserDisplayMode browserDisplayMode)
+    {
+        int indexSelect = 0;
+        for (int i = 0; i < cmbShowTreeModel.getItemCount(); i++)
+        {
+            BrowserDisplayMode browserShowMode = (BrowserDisplayMode) cmbShowTreeModel.getItemAt(i);
+            if (browserShowMode.getName().equals(browserDisplayMode.getName()))
+            {
+                indexSelect = i;
+                break;
+            }
+        }
+        cmbShowTreeModel.setSelectedIndex(indexSelect);
+    }
+
+
+    public JPanel getComponent()
+    {
+        return mainPanel;
+    }
+
+    public void applyFormChanges() throws ConfigurationException
+    {
+        BrowserSettings browserSettings = getConfiguration();
+        BrowserDisplayMode oldBrowserDisplayMode = browserSettings.getBrowserDisplayMode();
+        BrowserDisplayMode newBrowserDisplayMode = getBrowserDisplayMode();
+        browserSettings.setBrowserDisplayMode(newBrowserDisplayMode);
+        boolean browserDisplayModeChanged = !newBrowserDisplayMode.getName().equals(oldBrowserDisplayMode.getName());
+        if (browserDisplayModeChanged)
+        {
+            EventUtil.notify(this.getProject(), DisplayModeSettingsListener.TOPIC).displayModeChanged(newBrowserDisplayMode);
+        }
+    }
+
+
+    public void updateUiLanguage()
+    {
+        ResourceBundle resourceBundle = LocaleLanguageManager.getInstance().getResourceBundle();
+        TitledBorder border = (TitledBorder) mainPanel.getBorder();
+        border.setTitle(resourceBundle.getString(LanguageKeyWord.SETTINGSHOWMODELPANELTILE));
+        lableTreeShow.setText(resourceBundle.getString(LanguageKeyWord.SHOWMODELLABLETILE));
+    }
+
+    public void resetFormChanges()
+    {
+        BrowserSettings browserSettings = getConfiguration();
+        setSelectedLocale(browserSettings.getBrowserDisplayMode());
+    }
+
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$()
+    {
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
+        mainPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "树展示方式设置"));
+        lableTreeShow = new JLabel();
+        lableTreeShow.setText("树展现：");
+        mainPanel.add(lableTreeShow, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer1 = new Spacer();
+        mainPanel.add(spacer1, new GridConstraints(1, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        cmbShowTreeModel = new JComboBox();
+        mainPanel.add(cmbShowTreeModel, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$()
+    {
+        return mainPanel;
+    }
+}
