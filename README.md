@@ -1,16 +1,16 @@
-#IntelliJ plugin for Hadoop
+# IntelliJ plugin for Hadoop
 
 Hadoop-Intellij-Plugin 是Intellij IDEA 上的一款插件。实现了在Intellij IDEA 上的Hadoop文件系统的访问和相关操作。该操作包括读取Hadoop文件系统上文件列表进行展示、可以在Hadoop文件系统中创建目录、删除目录；下载或者上传文件；查看文件内容；运行Job作业、支持国际化语言设置等等。类似与 hadoop-eclipse-plugin的插件。Intellij-Plugin-Hadoop 的界面大致如下：
 
 ![Image text]
 
-##特性
+## 特性
 - 1、简单。 该插件易于使用，支持Window和Linux。
 - 2、可支持配置多个Hadoop文件系统的访问。
 - 3、支持多语言切换(目前只支持英文和中文，如需要支持其他语言，需要制作语言包)。
 
 
-##编译和安装
+## 编译和安装
 - 1、源码获取。
  
        从 https://github.com/fangyuzhong2016/HadoopIntellijPlugin 获取最新的源码。
@@ -48,7 +48,7 @@ Hadoop-Intellij-Plugin 是Intellij IDEA 上的一款插件。实现了在Intelli
       ![Image text]
 
 
-##Intellij plugin for hadoop 插件配置和源码的相关说明
+## Intellij plugin for hadoop 插件配置和源码的相关说明
 - 1、 插件的源码说明，源码组织如下：
      ![Image text]
 
@@ -69,7 +69,7 @@ HadoopNavigator_zh_CN.properties 文件为插件界面的中文语言配置
 目前插件界面的语言只支持 简体中文和英文，其他的语言，需要自行制作语言包。系统初始默认的语言为操作系统默认的语言。plugin.xml 为插件的配置文件
 
 
-##联系方式和相关设计文档
+## 联系方式和相关设计文档
 - 1、插件源码地址： https://github.com/fangyuzhong2016/HadoopIntellijPlugin
 - 2、插件相关设计： http://www.fangyuzhong.com
 - 3、插件作者联系方式：QQ:906328924
