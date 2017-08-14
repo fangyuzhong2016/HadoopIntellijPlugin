@@ -13,34 +13,13 @@ Hadoop-Intellij-Plugin is a plugin on Intellij IDEA. Implemented access and rela
 - 2, can support the configuration of multiple Hadoop file system access.
 - 3, support multi-language switching (currently only supports English and Chinese, such as the need to support other languages, the need to make language packs).
 
-
 ## How to compile and install ？
-- 1、Source code：
-
-       Get the latest source code from https://github.com/fangyuzhong2016/HadoopIntellijPlugin.
-
-- 2、Source compile
-
-    ①, The current Intellij plugin for hadoop source code using maven to compile and package, so before compiling to ensure that the installation of JDK1.8 and maven3 or above
-    
-    ②, Intellij plugin for hadoop plug-in based on IntelliJ IDEA Ultimate 2017.2 version of the development, so need to install IntelliJ IDEA Ultimate 2017 or later
-    
-    ③, Ready Hadoop related jar package (compilation step is not necessary)
-    
-    ④, Enter the source directory ../HadoopIntellijPlugin/ modify the pom.xml file, the main modified hadoop version and IntelliJ IDEA installation path, set as follows:
-![](Https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/5.jpg)
-
-    ⑤, the implementation of mvn order:
-   First execute
-   
-        mvn clean 
-    
-   Then execute
-    
-        mvn assembly:assembly 
-    
-    After the completion of the compiler in the ... / target / HadoopIntellijPlugin-1.0.zip that is the plug-in installation package, and then installed to IntelliJ
-
+- 1、Source code:Get the latest source code from https://github.com/fangyuzhong2016/HadoopIntellijPlugin.
+- 2、Source compile ①, The current Intellij plugin for hadoop source code using maven to compile and package, so before compiling to ensure that the installation of JDK1.8 and maven3 or above ②, Intellij plugin for hadoop plug-in based on IntelliJ IDEA Ultimate 2017.2 version of the development, so need to install IntelliJ IDEA Ultimate 2017 or later ③, Ready Hadoop related jar package (compilation step is not necessary) ④, Enter the source directory ../HadoopIntellijPlugin/ modify the pom.xml file, the main modified hadoop version and IntelliJ IDEA installation path, set as follows:
+![](Https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/5.jpg) ⑤, the implementation of mvn order:
+First execute mvn clean 
+Then execute mvn assembly:assembly   
+After the completion of the compiler in the ... / target / HadoopIntellijPlugin-1.0.zip that is the plug-in installation package, and then installed to IntelliJ
 
 - 3、Intellij plugin for hadoop development environment settings
    As the current use of Maven management Intellij plug-in development more difficult, so if you want to use Intellij modify Intellij plugin for hadoop plug-in code, directly based on the source code to create the Plugin project is not possible, according to IDEA plug-in development model for code engineering settings The
