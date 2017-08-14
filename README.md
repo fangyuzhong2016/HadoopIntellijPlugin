@@ -26,7 +26,7 @@ Get the latest source code from https://github.com/fangyuzhong2016/HadoopIntelli
 First execute   
 mvn clean  
 Then execute   
-mvn assembly:assembly  
+mvn assembly:assembly    
 After the completion of the compiler in the ... / target / HadoopIntellijPlugin-1.0.zip that is the plug-in installation package, and then installed to IntelliJ
 
 ## 3、Intellij plugin for hadoop development environment settings
@@ -34,7 +34,7 @@ After the completion of the compiler in the ... / target / HadoopIntellijPlugin-
    First create a plugin project in Intellij IDEA, such as HadoopIntellijPlugin, directory organization:
    
  ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/6.jpg)
-    Then, the source directory in the ../src/main/java/com folder, copy the development of the plug-in project source ... / src folder, then the source directory .... / src / main / Java / resources folder to the development plug-in project source .... / resources directory, and in the directory, create a lib folder, the Hadoop related jar package, copy in. Finally, set the development of the plug-in project HadoopIntellijPlugin configuration.
+    Then, the source directory in the ../src/main/java/com folder, copy the development of the plug-in project source ... / src folder, then the source directory .... / src / main / Java / resources folder to the development plug-in project source .... / resources directory, and in the directory, create a lib folder, the Hadoop related jar package, copy in. Finally, set the development of the plug-in project HadoopIntellijPlugin configuration.    
     ①, set the plug-in project expansion of the lib, the hadoop related jar package introduced:
     ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/7.png)
     ②、Plug some UI interface, the use of the IDEA GUI Design drag and drop the design, the interface element to save the corresponding class xml, the compilation process is used in the IDEA library for the compiler, not javac compiler, so in the compiler Process, set the GUI Designer source code generation, if you do not do this step in the development environment in the debug run, no problem, the entire UI interface code from the IDEA framework for dynamic generation insert, but packaged installation, will prompt interface The control failed to instantiate. Set the GUI Designer source code generation, in fact, those UI interface is generated xml file static Java code, insert the source file. In the IDEA settings, make the following settings:
@@ -42,8 +42,9 @@ After the completion of the compiler in the ... / target / HadoopIntellijPlugin-
      
 ## Intellij plugin for hadoop plugin configuration and source code
 - 1、 Plug-in source code, the source code organization is as follows:  
-    ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/9.jpg)  
-         ①, core package, the core package for the plug-in project, the public component library, including the generic UI interface, multi-threaded operation, Hadoop connection set base class, Hadoop file system general operation class, plug-in project settings generic class and other tools  
+    ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/9.jpg)    
+    
+      ①, core package, the core package for the plug-in project, the public component library, including the generic UI interface, multi-threaded operation, Hadoop connection set base class, Hadoop file system general operation class, plug-in project settings generic class and other tools  
     
          ②, fsconnection package, Hadoop file system connection implementation class and connection related configuration implementation class
          
