@@ -43,13 +43,12 @@ After the completion of the compiler in the ... / target / HadoopIntellijPlugin-
 ## Intellij plugin for hadoop plugin configuration and source code
 - 1、 Plug-in source code, the source code organization is as follows:  
     ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/9.jpg)    
-    
       ①, core package, the core package for the plug-in project, the public component library, including the generic UI interface, multi-threaded operation, Hadoop connection set base class, Hadoop file system general operation class, plug-in project settings generic class and other tools    
       ②, fsconnection package, Hadoop file system connection implementation class and connection related configuration implementation class     
       ③, fsobject package, file system object class implementation (for HDFS is the directory tree and file tree node organization to achieve)   
       ④, fsbrowser package, the main interface to achieve plug-ins, including the HDFS file system to read the relevant data display, file system object creation, download, delete, upload and other operations    
-      ⑤, globalization package, plug-in multi-language support class⑥, options package, plugin set class⑦, mainmenu package, plug-in main menu operation class
-         
+      ⑤, globalization package, plug-in multi-language support class⑥, options package, plugin set class⑦, mainmenu package, plug-in main menu operation class     
+      
 - 2、Plug-in configuration instructions
 The plugin is configured in the / resources / directory, including HadoopNavigator_en_US.properties, HadoopNavigator_en_US.properties, plugin.xml.
 The HadoopNavigator_en_US.properties file is the English language configuration for the plug-in interface
