@@ -44,10 +44,10 @@ Hadoop-Intellij-Plugin 是Intellij IDEA 上的一款插件。实现了在Intelli
     然后，把源码目录中的   ../src/main/java/com  文件夹，拷贝到 开发的插件工程 源码 .../src文件夹下，再把  源码目录中的 ..../src/main/java/resources  文件夹拷贝到 开发插件工程源码 ..../resources  目录下，并且在该目录下，创建lib 文件夹，把Hadoop的相关jar包，拷贝进来。最后，设置开发的插件工程 HadoopIntellijPlugin配置。
     
     ①、设置插件工程扩展的lib，把hadoop 的相关jar 包引入：
-     ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/7.jpg)
+     ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/7.png)
       
     ②、插件有些UI界面，使用的是IDEA的 GUI Design 进行拖拽设计的，界面元素保存对应类的xml 中，编译过程中使用的是 IDEA的库进行的编译的，并不是 javac 编译器，因此在编译过程中，设置 GUI Designer 的源码生成方式，如果不做这步的设置，在开发环境中进行 debug 运行，没有问题，整个UI界面代码由IDEA框架进行动态生成插入，但打包安装后，会提示界面控件未能实例化。设置 GUI Designer 的源码生成方式，其实就是将那些UI界面的xml 文件生成静态的 Java代码，插入源文件中。在IDEA设置中，进行如下设置：
-     ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/8.jpg)
+     ![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/8.png)
 
 
 ## Intellij plugin for hadoop 插件配置和源码的相关说明
@@ -76,7 +76,8 @@ HadoopNavigator_zh_CN.properties 文件为插件界面的中文语言配置
 - 2、插件相关设计： http://www.fangyuzhong.com
 - 3、插件作者联系方式：QQ:906328924
 - 4、插件开发QQ群：421116017
-![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/11.jpg)
+
+![](https://github.com/fangyuzhong2016/HadoopIntellijPlugin/blob/master/img-folder/11.png)
 
 
 
