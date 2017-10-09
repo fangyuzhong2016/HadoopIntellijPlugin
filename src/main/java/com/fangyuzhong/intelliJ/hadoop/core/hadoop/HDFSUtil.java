@@ -107,7 +107,9 @@ public class HDFSUtil
         }
         catch (IOException ex)
         {
-            return  null;
+            //如果出现异常，或许是ACL权限没有配置。默认给出所有权限
+            return  FsAction.ALL;
+           // return  null;
         }
     }
 
