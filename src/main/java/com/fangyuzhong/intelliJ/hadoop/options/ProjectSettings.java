@@ -43,7 +43,9 @@ public class ProjectSettings
         super(project);
         connectionSettings = new ConnectionBundleSettings(project);
         generalSettings = new GeneralProjectSettings(project);
-        if ((project.isDefault() && ApplicationManager.getApplication().isActive()) || project.isInitialized())
+
+        final boolean isDefaultProject = project.isDefault();
+        if ((isDefaultProject && ApplicationManager.getApplication().isActive()) || (!isDefaultProject && project.isInitialized()))
         {
             ProjectSettings projectSettings = ProjectSettingsManager.getSettings(project);
             Element settings = new Element("settings");
