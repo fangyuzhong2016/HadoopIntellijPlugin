@@ -266,6 +266,7 @@ public abstract class ConnectionFileSystemSettings extends
         {
             user=System.getProperty("user.name");
         }
+		System.setProperty("HADOOP_USER_NAME", user);
         password = decodePassword(getString(element, "password", password));
         active = getBoolean(element, "active", active);
         osAuthentication = getBoolean(element, "os-authentication", osAuthentication);
