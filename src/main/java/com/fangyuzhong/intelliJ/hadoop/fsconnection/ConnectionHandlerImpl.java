@@ -71,6 +71,10 @@ public class ConnectionHandlerImpl  extends DisposableBase
                 configurationHdfs.set(Constants.FS_FILE_IMPL_KEY,Constants.FS_FILE_IMPL_VALUE);
                 configurationHdfs.set(Constants.FS_DEFAULTFS_KEY, hdfsPath);
                 configurationHdfs.set(Constants.YARN_RESOURCEMANAGER_SCHEDULER_ADDRESS,yarnResourceAMPath);
+				 /*************解决卡死的问题*******************************************************/
+                configurationHdfs.set(Constants.IPC_CLIENT_CONNECT_TIMEOUT, "3000"); //默认连接3s超时
+                configurationHdfs.set(Constants.IPC_CLIENT_CONNECT_MAX_RETRIES_ON_TIMEOUTS, "1");// 超时后重试1次
+                /*********************************************************************************/
                 //通过配置初始化HDFS的FileSystem
                 InitiFileSystem(configurationHdfs);
             }
@@ -187,6 +191,8 @@ public class ConnectionHandlerImpl  extends DisposableBase
         }
         else
         {
+			fileSystem.getConf().set(Constants.IPC_CLIENT_CONNECT_TIMEOUT, "3000"); //默认连接3s超时
+            fileSystem.getConf().set(Constants.IPC_CLIENT_CONNECT_MAX_RETRIES_ON_TIMEOUTS, "1");// 超时后重试1次
             canConnection = fileSystem.exists(new Path("/"));
         }
         return canConnection;
