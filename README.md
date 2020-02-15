@@ -59,7 +59,7 @@ The current plug-in interface language only supports Simplified Chinese and Engl
 
 ## Contact information and related design documents
 - 1, plugin source address: https://github.com/fangyuzhong2016/HadoopIntellijPlugin
-- 2, plug-in related design: http://www.fangyuzhong.com
+- 2, plug-in related design: https://www.fangyuzhong.com
 - 3, plug the author contact: QQ: 906328924
 - 4, plug-in development QQ group: 421116017
 
@@ -142,7 +142,7 @@ HadoopNavigator_zh_CN.properties 文件为插件界面的中文语言配置
 
 ## 联系方式和相关设计文档
 - 1、插件源码地址： https://github.com/fangyuzhong2016/HadoopIntellijPlugin
-- 2、插件相关设计： http://www.fangyuzhong.com
+- 2、插件相关设计： https://www.fangyuzhong.com
 - 3、插件作者联系方式：QQ:906328924
 - 4、插件开发QQ群：421116017
 
