@@ -10,9 +10,9 @@
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--设置hadoop版本-->
-    <hadoop.2.version>3.0.0-alpha2</hadoop.2.version>
+    <hadoop.2.version>3.1.4-alpha2</hadoop.2.version>
     <!--设置Intellij-IDEA的安装路径-->
-    <IntellijIde.dir>/home/hadoopuser/SoftwareDir/idea-IU-171.3780.95</IntellijIde.dir>
+    <IntellijIde.dir>D:\IntelliJ IDEA\IntelliJ IDEA Community Edition 2020.3.2
   </properties>
   <dependencies>
     <dependency>
